@@ -1,6 +1,8 @@
 export default function MovieResults(props) {
   
   return (
-    <section></section>
+    <section>
+      Movie Results
+    </section>
   )
 }
