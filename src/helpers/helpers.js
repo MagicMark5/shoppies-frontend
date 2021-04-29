@@ -8,6 +8,9 @@ export const removeNomination = (movie) => {
 }
 
 export const listMovieResults = (movieData) => {
-  // Makes an <ul> in MovieResults with desired movie data from API response
-  
+  // Returns an array of objects with desired movie data from API response
+  if (!movieData) {
+    return null;
+  }
+
 }
