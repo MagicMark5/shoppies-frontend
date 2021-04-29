@@ -2,9 +2,9 @@ import { render } from '@testing-library/react'
 import MovieResults from '../MovieResults'
 
 describe('MovieResults basic functionality', () => {
-  it('Shows "no results for" message when given invalid input', () => {
+  it('Shows "No results for" message when given invalid input', () => {
     const result = render(<MovieResults />)
-    const element = result.queryByText("no results for")
+    const element = result.queryByText("No results for")
 
     expect(element).toBeInTheDocument()
   })
@@ -21,8 +21,8 @@ describe('MovieResults basic functionality', () => {
     expect(nominateBtns.length).toBe(4);
 
     for (const movie of listOfMovies) {
-      const movieTitle = queryByText(movie)
-      expect(movieTitle).toBeInTheDocument()
+      const movieButton = queryByText(`Nominate ${movie}`)
+      expect(movieButton).toBeInTheDocument()
     }
   })
 })
