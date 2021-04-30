@@ -4,9 +4,10 @@ export default function MovieResults(props) {
   const validatedMovies = Array.isArray(movieList) ? movieList : [];
   
   const parsedMovies = validatedMovies.map(movie => 
-    <li key={movie}>
+    <li key={movie.imdbID}>
+      <p>{movie.Title} ({movie.Year})</p>
       <button data-testid="nominateBtn">
-        {`Nominate ${movie}`}
+        {`Nominate ${movie.Title}`}
       </button>
     </li>
   )
