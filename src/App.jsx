@@ -13,7 +13,7 @@ function App() {
   //const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li>));
   const [currentMovie, setCurrentMovie] = useState("")
 
-  const updateMovieAndResults = (movieName) => {
+  const updateMovieResults = (movieName) => {
     setCurrentMovie(movieName)
     console.log("MOVIE NAME FROM APP: ", movieName);
     // ask for the data from server on App re-render
@@ -22,7 +22,9 @@ function App() {
   useEffect(() => {
     if (currentMovie) {
       axios.post('/api/movies', { movie: currentMovie })
-      .then(res => console.log(res))
+      .then(res => {
+        console.log(res.data.Search);
+      })
       .catch(e => {
         console.log(e)
         setCurrentMovie(null)
