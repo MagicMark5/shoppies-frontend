@@ -3,7 +3,13 @@ export default function MovieResults(props) {
   
   const validatedMovies = Array.isArray(movieList) ? movieList : [];
   
-  const parsedMovies = validatedMovies.map(movie => <li key={movie}><button data-testid="nominateBtn">{`Nominate ${movie}`}</button></li>)
+  const parsedMovies = validatedMovies.map(movie => 
+    <li key={movie}>
+      <button data-testid="nominateBtn">
+        {`Nominate ${movie}`}
+      </button>
+    </li>
+  )
   
   return (
     <section>
