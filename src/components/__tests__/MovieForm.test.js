@@ -11,7 +11,7 @@ describe('MovieForm basic functionality', () => {
     // Action: click input to select the element and fire change event to change value
     fireEvent.click(input)
     fireEvent.change(input, { target: { value: "spiderman"} })
-    // Evaluate and expect result 
+    // Evaluate and expect to see entered value
     const spiderman = queryByDisplayValue("spiderman")
     expect(spiderman).toBeInTheDocument()
   })
@@ -33,7 +33,7 @@ describe('MovieForm basic functionality', () => {
     // click search and submit form 
     fireEvent.click(button)
     const lalaLandAfterSearch = queryByDisplayValue("Lala Land")
-    // Evaluate and expect results
+    // Evaluate and expect input to be empty
     expect(lalaLandAfterSearch).not.toBeInTheDocument()
     expect(input.value.length).toBe(0)
   })

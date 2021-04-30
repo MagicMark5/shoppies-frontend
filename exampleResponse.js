@@ -1,4 +1,4 @@
-{
+export const exampleResponse = {
   "Title": "Star Wars: Episode IV - A New Hope",
   "Year": "1977",
   "Rated": "PG",

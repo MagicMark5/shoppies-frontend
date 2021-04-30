@@ -5,11 +5,11 @@ export default function MovieForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    // make call to server with movie string (sanitize input?)
-    // or pass submission to App 
+    // pass query string to App as movie 
+    props.handleSubmitAction(movie)
     // reset input
     setMovie("")
-  };
+  }
 
   const handleChange = event => {
     const value = event.target.value; 
