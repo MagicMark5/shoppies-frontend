@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios'
 import './App.css';
 import MovieForm from './components/MovieForm';
 import MovieResults from './components/MovieResults';
@@ -15,10 +16,21 @@ function App() {
   const updateMovieAndResults = (movieName) => {
     setCurrentMovie(movieName)
     console.log("MOVIE NAME FROM APP: ", movieName);
-    // ask for the data from server
+    // ask for the data from server on App re-render
   }
 
-  console.log(currentMovie)
+  useEffect(() => {
+    if (currentMovie) {
+      axios.post('/api/movies', { movie: currentMovie })
+      .then(res => console.log(res))
+      .catch(e => {
+        console.log(e)
+        setCurrentMovie(null)
+      })
+    }
+  }, [currentMovie])
+
+  
 
   return (
     <div className="App">
