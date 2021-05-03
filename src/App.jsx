@@ -13,6 +13,7 @@ function App() {
   //const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li>));
   const [currentMovie, setCurrentMovie] = useState("")
   const [currentResults, setCurrentResults] = useState([])
+  const [currentNominations, setNominations] = useState([])
   
   useEffect(() => {
     if (currentMovie) {
@@ -29,15 +30,20 @@ function App() {
     }
   }, [currentMovie])
 
-  
+  console.log(currentNominations);
 
   return (
     <div className="App">
       <h1>The Shoppies</h1>
       <MovieForm handleSubmitAction={setCurrentMovie} />
       <section className="results-nominations">
-        <MovieResults movieList={currentResults} query={currentMovie}/>
-        <Nominations />
+        <MovieResults 
+          movieList={currentResults} 
+          query={currentMovie} 
+          currentNominations={currentNominations}
+          handleNominateAction={setNominations}
+        />
+        <Nominations currentNominations={currentNominations}/>
       </section>
     </div>
   );
