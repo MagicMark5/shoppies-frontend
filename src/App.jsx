@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import './App.css';
+import './App.scss';
 import MovieForm from './components/MovieForm';
 import MovieResults from './components/MovieResults';
 import Nominations from './components/Nominations';
@@ -33,10 +33,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Shoppies</h1>
+      <h1>The Shoppies</h1>
       <MovieForm handleSubmitAction={setCurrentMovie} />
-      <MovieResults movieList={currentResults} />
-      <Nominations />
+      <section className="results-nominations">
+        <MovieResults movieList={currentResults} query={currentMovie}/>
+        <Nominations />
+      </section>
     </div>
   );
 }

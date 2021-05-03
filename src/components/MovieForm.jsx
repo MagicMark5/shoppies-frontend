@@ -13,7 +13,7 @@ export default function MovieForm(props) {
 
   const handleChange = event => {
     const value = event.target.value; 
-    if (value.length <= 50) {
+    if (value.length <= 70) {
       setMovie(value)
     }
   }
