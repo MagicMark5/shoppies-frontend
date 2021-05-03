@@ -16,14 +16,14 @@ export default function MovieResults(props) {
         name={`${movie.Title} (${movie.Year})`} 
         data-testid="nominateBtn" 
         onClick={nominateMovie}>
-          Nominate
+        <i className="fas fa-trophy"></i>
       </button>
     </li>
   )
   
   return (
     <section className="results">
-      {validatedMovies.length === 0 && <h3>No results for {props.query}</h3>}
+      {validatedMovies.length === 0 && <h3>No results for "{props.query}"</h3>}
       {validatedMovies.length > 0 && <h3>Movie Results</h3>}
       <ul>
         {parsedMovies}

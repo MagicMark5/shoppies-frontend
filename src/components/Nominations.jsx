@@ -4,12 +4,8 @@ export default function Nominations(props) {
   const handleRemoveNomination = (event) => {
     const movie = event.target.name;
     const copyNominations = [...currentNominations];
-    console.log("before splice...")
-    console.log(copyNominations);
     const removeIndex = copyNominations.indexOf(movie);
     copyNominations.splice(removeIndex, 1);
-    console.log("after splice...")
-    console.log(copyNominations);
     removeNomination([...copyNominations]);
   }  
   
