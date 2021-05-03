@@ -7,13 +7,13 @@ import Nominations from './components/Nominations';
 //import useApplicationData from './hooks/useApplicationData'
 
 
-
 function App() {
   //const { state, dispatch } = useApplicationData();
   //const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li>));
   const [currentMovie, setCurrentMovie] = useState("")
   const [currentResults, setCurrentResults] = useState([])
   const [currentNominations, setNominations] = useState([])
+  const showBanner = currentNominations.length >= 5 ? true : false;
   
   useEffect(() => {
     if (currentMovie) {
@@ -35,6 +35,7 @@ function App() {
   return (
     <div className="App">
       <h1>The Shoppies</h1>
+      {showBanner && <span>You have 5 nomations! Time for the shoppies 🏆 </span>}
       <MovieForm handleSubmitAction={setCurrentMovie} />
       <section className="results-nominations">
         <MovieResults 
