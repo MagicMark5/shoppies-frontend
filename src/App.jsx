@@ -43,7 +43,10 @@ function App() {
           currentNominations={currentNominations}
           handleNominateAction={setNominations}
         />
-        <Nominations currentNominations={currentNominations}/>
+        <Nominations 
+          currentNominations={currentNominations}
+          removeNomination={setNominations}
+        />
       </section>
     </div>
   );

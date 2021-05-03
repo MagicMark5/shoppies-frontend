@@ -4,12 +4,12 @@ export default function MovieResults(props) {
   const validatedMovies = Array.isArray(movieList) ? movieList : [];
   
   const nominateMovie = (event) => {
-    console.log(event.target.name);
-    handleNominateAction([...currentNominations, event.target.name]);
+    const movie = event.target.name;
+    handleNominateAction([...currentNominations, movie]);
   }
   
   const parsedMovies = validatedMovies.map(movie => 
-    <li key={movie.Title}>
+    <li key={`${movie.Title} (${movie.Year})`}>
       <span>{movie.Title} ({movie.Year})</span>
       <button 
         disabled={currentNominations.includes(`${movie.Title} (${movie.Year})`) ? true : false}
