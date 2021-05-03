@@ -13,7 +13,7 @@ function App() {
   const [currentMovie, setCurrentMovie] = useState("")
   const [currentResults, setCurrentResults] = useState([])
   const [currentNominations, setNominations] = useState([])
-  const showBanner = currentNominations.length >= 5 ? true : false;
+  const showBanner = currentNominations.length === 5 ? true : false;
   
   useEffect(() => {
     if (currentMovie) {

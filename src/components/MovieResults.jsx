@@ -1,5 +1,6 @@
 export default function MovieResults(props) {
   const { movieList, currentNominations, handleNominateAction } = props
+  const fiveSelected = currentNominations.length === 5 ? true : false;
   
   const validatedMovies = Array.isArray(movieList) ? movieList : [];
   
@@ -12,11 +13,11 @@ export default function MovieResults(props) {
     <li key={`${movie.Title} (${movie.Year})`}>
       <span>{movie.Title} ({movie.Year})</span>
       <button 
-        disabled={currentNominations.includes(`${movie.Title} (${movie.Year})`) ? true : false}
+        className="fas fa-trophy"
+        disabled={fiveSelected || currentNominations.includes(`${movie.Title} (${movie.Year})`) ? true : false}
         name={`${movie.Title} (${movie.Year})`} 
         data-testid="nominateBtn" 
         onClick={nominateMovie}>
-        <i className="fas fa-trophy"></i>
       </button>
     </li>
   )
