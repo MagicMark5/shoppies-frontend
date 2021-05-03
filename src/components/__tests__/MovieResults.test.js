@@ -4,16 +4,40 @@ import MovieResults from '../MovieResults'
 describe('MovieResults basic functionality', () => {
 
   it('Shows "No results for" message when given invalid input', () => {
-    const result = render(<MovieResults />)
-    const element = result.queryByText("No results for")
+    const result = render(<MovieResults 
+      movieList={[]} 
+      query={"asdf"} 
+      currentNominations={[]}
+    />)
+    const element = result.queryByText('No results for "asdf"')
 
     expect(element).toBeInTheDocument()
   })
 
   it('Shows a list of buttons when given a list of movies', () => {
-    const listOfMovies = ["Rambo", "Greese", "Lion King", "Finding Nemo"]
+    const listOfMovies = [
+      {
+        "Title": "Rambo", 
+        "Year": 1991
+      },
+      {
+        "Title": "Greese",
+        "Year": 1985
+      }, 
+      {
+        "Title": "Lion King",
+        "Year": 1995
+      }, 
+      {
+        "Title": "Finding Nemo",
+        "Year": 2002
+      }
+    ];
 
-    const { queryByText, queryAllByTestId } = render(<MovieResults movieList={listOfMovies} />)
+    const { queryByText, queryAllByTestId } = render(<MovieResults 
+      movieList={listOfMovies} 
+      currentNominations={[]}
+    />)
 
     const heading = queryByText("Movie Results")
     expect(heading).toBeInTheDocument()
@@ -22,10 +46,6 @@ describe('MovieResults basic functionality', () => {
 
     expect(nominateBtns.length).toBe(4);
 
-    for (const movie of listOfMovies) {
-      const movieButton = queryByText(`Nominate ${movie}`)
-      expect(movieButton).toBeInTheDocument()
-    }
   })
   
 })

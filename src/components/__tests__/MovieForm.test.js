@@ -17,7 +17,9 @@ describe('MovieForm basic functionality', () => {
   })
 
   it('Resets/clears the value of the input after Search button is clicked', () => {
-    const result = render(<MovieForm />)
+    const mockHandleSubmit = () => console.log("submit handled");
+
+    const result = render(<MovieForm handleSubmitAction={mockHandleSubmit}/>)
     const { queryByDisplayValue, getByPlaceholderText, getByTestId } = result
     const input = getByPlaceholderText("Enter the movie name")
     const button = getByTestId("search")
