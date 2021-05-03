@@ -30,8 +30,6 @@ function App() {
     }
   }, [currentMovie])
 
-  console.log(currentNominations);
-
   return (
     <div className="App">
       <h1>The Shoppies</h1>
