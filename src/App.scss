@@ -12,20 +12,9 @@ body {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-form {
-  height: 40px;
-  display: flex;
+section.movieForm {
+  display: flex; 
   justify-content: center;
-  margin-bottom: 1em;
-}
-
-input, button {
-  font-size: 1em;
-  border-radius: 6px;
 }
 
 .results-nominations {

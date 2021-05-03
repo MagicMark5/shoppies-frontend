@@ -33,7 +33,9 @@ function App() {
   return (
     <div className="App">
       <h1>The Shoppies</h1>
-      <MovieForm handleSubmitAction={setCurrentMovie} />
+      <section className="movieForm">
+        <MovieForm handleSubmitAction={setCurrentMovie} />
+      </section>
       {showBanner && <section className="banner">You have 5 nominations! Time for the shoppies 🏆 </section>}
       <section className="results-nominations">
         <MovieResults 
