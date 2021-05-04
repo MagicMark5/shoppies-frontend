@@ -50,6 +50,9 @@ section.movieForm {
     ul {
       list-style: none;
       padding-inline-start: 10px;
+      .MuiIcon-root {
+        width: fit-content;
+      }
     }
   }
 }
@@ -68,3 +71,4 @@ li {
   background-color: #007ede;
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
 }
+
