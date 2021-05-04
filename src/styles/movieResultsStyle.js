@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
     backgroundColor: "inherit"
   },
   title: {
-    margin: theme.spacing(4, 1, 2),
+    margin: theme.spacing(4, 2, 2),
   },
 }));
 

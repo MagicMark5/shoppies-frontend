@@ -7,8 +7,6 @@ export default function Nominations(props) {
   const classes = makeStyles();
   const { currentNominations, removeNomination } = props
 
-  console.log(currentNominations);
-
   const handleRemoveNomination = (event) => {
     // get movie data from name prop of whichever element was clicked (either button or icon)
     const movie = event.target.name ? event.target.name : event.target.offsetParent.name;
@@ -19,7 +17,6 @@ export default function Nominations(props) {
   }  
   
   const parsedNominations = currentNominations.map((nomination) => {
-    console.log(nomination);
     const movieData = JSON.parse(nomination);
     return parseListItems(movieData, handleRemoveNomination)
   });

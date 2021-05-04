@@ -4,6 +4,7 @@ import './App.scss';
 import MovieForm from './components/MovieForm';
 import MovieResults from './components/MovieResults';
 import Nominations from './components/Nominations';
+import removeDuplicates from './helpers/removeDuplicates';
 //import useApplicationData from './hooks/useApplicationData'
 
 
@@ -21,7 +22,8 @@ function App() {
       axios.post('/api/movies', { movie: currentMovie })
       .then(res => {
         const movieArray = res.data.Search;
-        setCurrentResults(movieArray);
+        const uniqueResults = removeDuplicates(movieArray);
+        setCurrentResults(uniqueResults);
       })
       .catch(e => {
         console.log(e)

@@ -7,12 +7,12 @@ import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 
 export default function parseListItems(movie, clickHandler, currentNominations = [], fiveSelected = false) {
-  const { Title, Year, Poster } = movie;
+  const { Title, Year, Poster, imdbID } = movie;
   const movieData = { Title, Year, Poster }
   const movieString = JSON.stringify(movieData);
   const isButtonDisabled = fiveSelected || currentNominations.includes(movieString) ? true : false;
 
-  return (<ListItem key={`${Title} (${Year})`}>
+  return (<ListItem key={`${Title} (${Year}) [${imdbID}]`}>
           <ListItemAvatar>
             <Avatar>
               <Icon className="fas fa-film" />
