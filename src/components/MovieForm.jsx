@@ -20,7 +20,7 @@ export default function MovieForm(props) {
 
   const handleChange = event => {
     const value = event.target.value; 
-    if (value.length <= 70) {
+    if (value.length <= 100) {
       setMovie(value)
     }
   }
@@ -30,22 +30,18 @@ export default function MovieForm(props) {
       <div className={classes.searchIcon}>
         <SearchIcon />
       </div>
-      <form 
-        onSubmit={handleSubmit} 
-        onBlur={handleSubmit}
-        autoComplete="off"
-      >
-      <InputBase
-        name="movie"
-        value={movie}
-        onChange={handleChange}
-        placeholder="Enter a movie title..."
-        classes={{
-          root: classes.inputRoot,
-          input: classes.inputInput,
-        }}
-        inputProps={{ 'aria-label': 'search' }}
-      />
+      <form onSubmit={handleSubmit} onBlur={handleSubmit} autoComplete="off">
+        <InputBase
+          name="movie"
+          value={movie}
+          onChange={handleChange}
+          placeholder="Enter a movie title..."
+          classes={{
+            root: classes.inputRoot,
+            input: classes.inputInput,
+          }}
+          inputProps={{ 'aria-label': 'search' }}
+        />
       </form>
     </div>
   )

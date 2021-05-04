@@ -25,11 +25,11 @@ export default makeStyles((theme) => ({
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
-      width: '50%'
+      width: '60%'
     },
   },
   searchIcon: {
-    padding: theme.spacing(0, 2),
+    padding: theme.spacing(0, 1),
     height: '100%',
     position: 'absolute',
     pointerEvents: 'none',
@@ -39,13 +39,14 @@ export default makeStyles((theme) => ({
   },
   inputRoot: {
     color: 'inherit',
-    width: '75%'
+    width: '80%'
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
     transition: theme.transitions.create('width'),
     width: '100%',
+    height: '20px',
     [theme.breakpoints.up('md')]: {
       width: '80ch',
     },
