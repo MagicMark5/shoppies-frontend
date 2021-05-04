@@ -16,9 +16,10 @@ export default function Nominations(props) {
     removeNomination([...copyNominations]);
   }  
   
+  // parse nomination and conditional button icon (true = trash can)
   const parsedNominations = currentNominations.map((nomination) => {
     const movieData = JSON.parse(nomination);
-    return parseListItems(movieData, handleRemoveNomination)
+    return parseListItems(movieData, handleRemoveNomination, true);
   });
   
   return (

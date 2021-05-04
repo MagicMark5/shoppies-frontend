@@ -21,9 +21,9 @@ export default function MovieResults(props) {
     handleNominateAction([...currentNominations, movie]);
   }
 
-  // parse movies and conditionally enable buttons
+  // parse movies and conditionally enable buttons and button icon (false = trophy)
   const parsedMovies = validatedMovies
-    .map(movie => parseListItems(movie, nominateMovie, currentNominations, fiveSelected));
+    .map(movie => parseListItems(movie, nominateMovie, false, currentNominations, fiveSelected));
   
   return (
     <section className="results">
