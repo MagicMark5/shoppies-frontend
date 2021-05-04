@@ -13,13 +13,13 @@ export default function MovieForm(props) {
   const handleSubmit = (event) => {
     event.preventDefault()
     // pass query string to App as movie 
-    props.handleSubmitAction(movie)
+    props.handleSubmitAction(movie.trim())
     // reset input
     setMovie("")
   }
 
   const handleChange = event => {
-    const value = event.target.value; 
+    const value = event.target.value
     if (value.length <= 100) {
       setMovie(value)
     }
