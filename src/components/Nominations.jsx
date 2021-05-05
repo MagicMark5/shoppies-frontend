@@ -13,9 +13,8 @@ export default function Nominations(props) {
     // get movie data from name prop of whichever element was clicked (either button or icon)
     const movie = event.target.name ? event.target.name : event.target.offsetParent.name;
     const copyNominations = [...currentNominations];
-    const removeIndex = copyNominations.indexOf(movie);
-    copyNominations.splice(removeIndex, 1);
-    removeNomination([...copyNominations]);
+    const updatedNoms = copyNominations.filter(nom => nom !== movie)
+    removeNomination([...updatedNoms]);
   }  
   
   // parse nomination and conditional button icon (true = trash can)
@@ -23,6 +22,10 @@ export default function Nominations(props) {
     const movieData = JSON.parse(nomination);
     return parseListItems(movieData, handleRemoveNomination, true);
   });
+
+  // Save currentNominations to local storage
+  console.log(currentNominations);
+  localStorage.setItem("nominations", JSON.stringify(currentNominations));
   
   return (
     <section className="nominations">
