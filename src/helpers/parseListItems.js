@@ -14,9 +14,15 @@ export default function parseListItems(movie, clickHandler, isNomination, curren
   const isButtonDisabled = fiveSelected || currentNominations.includes(movieString) ? true : false;
   const iconClass = isNomination ? "fas fa-trash" : "fas fa-trophy";
 
+  const avatarStyle = {
+    height: '60px',
+    width: '60px',
+    "margin-right": '1em'
+  }
+
   return (<ListItem key={`${Title} (${Year}) [${imdbID}]`}>
             <ListItemAvatar>
-              <Avatar src={Poster}>
+              <Avatar src={Poster} style={avatarStyle}>
                 <Icon className="fas fa-film" />
               </Avatar>
             </ListItemAvatar>
