@@ -32,7 +32,7 @@ export default function MovieResults(props) {
       {showTip && <Typography variant="h6" className={classes.title}>
         Enter a movie title into the search bar to see some films
         </Typography>}
-      <div className={classes.demo}>
+      <div className={classes.background}>
         <List>
           {parsedMovies}
         </List>

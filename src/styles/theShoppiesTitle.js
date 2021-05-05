@@ -5,7 +5,7 @@ export default makeStyles((theme) => ({
     flexGrow: 1,
     maxWidth: 752,
   },
-  demo: {
+  background: {
     backgroundColor: "inherit"
   },
   title: {
