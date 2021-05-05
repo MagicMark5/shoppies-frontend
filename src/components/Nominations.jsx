@@ -6,6 +6,8 @@ import List from '@material-ui/core/List';
 export default function Nominations(props) {
   const classes = makeStyles();
   const { currentNominations, removeNomination } = props
+  const headingText = currentNominations.length === 0 ? `You have no nominations` : `Nominations`;
+  const showTip = currentNominations.length === 0 ? true : false;
 
   const handleRemoveNomination = (event) => {
     // get movie data from name prop of whichever element was clicked (either button or icon)
@@ -25,8 +27,11 @@ export default function Nominations(props) {
   return (
     <section className="nominations">
       <Typography variant="h5" className={classes.title}>
-        Nominations
+        {headingText}
       </Typography>
+      {showTip && <Typography variant="h6" className={classes.title}>
+        Click the trophy icon from the movie results to nominate a film
+        </Typography>}
       <List>
         {parsedNominations}
       </List>
