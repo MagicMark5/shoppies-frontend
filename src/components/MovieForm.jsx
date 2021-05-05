@@ -30,7 +30,7 @@ export default function MovieForm(props) {
       <div className={classes.searchIcon}>
         <SearchIcon />
       </div>
-      <form onSubmit={handleSubmit} onBlur={handleSubmit} autoComplete="off">
+      <form onSubmit={handleSubmit} autoComplete="off">
         <InputBase
           name="movie"
           value={movie}
