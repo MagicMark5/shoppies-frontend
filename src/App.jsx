@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.scss';
+import makeStyles from "./styles/theShoppiesTitle";
+import Typography from '@material-ui/core/Typography';
 import MovieForm from './components/MovieForm';
 import MovieResults from './components/MovieResults';
 import Nominations from './components/Nominations';
@@ -11,6 +13,7 @@ import removeDuplicates from './helpers/removeDuplicates';
 function App() {
   //const { state, dispatch } = useApplicationData();
   //const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li>));
+  const classes = makeStyles();
   const [currentMovie, setCurrentMovie] = useState("")
   const [currentResults, setCurrentResults] = useState([])
   const [currentNominations, setNominations] = useState([])
@@ -21,7 +24,7 @@ function App() {
       // post query to shoppies-backend on App re-render
       axios.post('/api/movies', { movie: currentMovie })
       .then(res => {
-        const movieArray = res.data.Search;
+        const movieArray = res.data.Search ? res.data.Search : [];
         const uniqueResults = removeDuplicates(movieArray);
         setCurrentResults(uniqueResults);
       })
@@ -34,7 +37,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>The Shoppies</h1>
+      <Typography variant="h2" className={classes.title}>
+        The Shoppies
+      </Typography>
       <section className="movieForm">
         <MovieForm handleSubmitAction={setCurrentMovie} />
       </section>
