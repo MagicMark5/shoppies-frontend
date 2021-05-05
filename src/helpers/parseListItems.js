@@ -31,6 +31,7 @@ export default function parseListItems(movie, clickHandler, isNomination, curren
               title={Title}
               year={Year}
               poster={Poster}
+              imdbID={imdbID}
               />
             <ListItemSecondaryAction>
               <IconButton 

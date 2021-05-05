@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MoviePopover(props) {
 
-  const { title, year, poster } = props;
+  const { title, year, poster, imdbID } = props;
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -30,7 +30,7 @@ export default function MoviePopover(props) {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  const id = open ? imdbID : undefined;
 
   return (
     <>
