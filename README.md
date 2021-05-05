@@ -7,4 +7,5 @@ A webpage that can search the [OMDB](http://www.omdbapi.com/) for movies. It all
 * Add a movie from the search results to our nomination list
 * View the list of films already nominated
 * Remove a nominee from the nomination list
+* Nominations are saved if the user leaves the page
 
