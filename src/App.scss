@@ -48,6 +48,8 @@ section.movieForm {
   section {
     flex-direction: column;
     margin: 0;
+    max-height: 600px;
+    overflow: scroll;
     width: 49%;
     ul {
       list-style: none;

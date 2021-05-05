@@ -42,12 +42,32 @@ describe('parseListItems basic tests', () => {
       result = render(movie);
     });
 
-    const { queryAllByText, debug } = result; 
+    const { queryAllByText } = result; 
     const titles = queryAllByText(/Episode/i);
-    debug()
+
     // there are 9 star wars episodes
     expect(titles.length).toBe(9);
     titles.forEach(title => expect(title).toBeInTheDocument())
   });
 
+})
+
+describe('makePopover basic tests', () => {
+
+  it('renders a popover window when the movie title is clicked', () => {
+    let result;
+    const starWarsArray = exampleResponse();
+    const clickHandler = () => console.log("click handled");
+
+    const parsedMovies = starWarsArray.map(starWarsMovie => parseListItems(starWarsMovie, clickHandler, false))
+    
+    parsedMovies.forEach((movie, index) => {
+      result = render(movie);
+    });
+
+    const { debug, getByText } = result; 
+    const returnOfTheJedi = getByText(/Return of the Jedi/i)
+    fireEvent.click(returnOfTheJedi);
+    debug()
+  })
 })

@@ -5,9 +5,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
+import MoviePopover from '../components/MoviePopover';
 
 export default function parseListItems(movie, clickHandler, isNomination, currentNominations = [], fiveSelected) {
-  
   const { Title, Year, Poster, imdbID } = movie;
   const movieData = { Title, Year, Poster }
   const movieString = JSON.stringify(movieData);
@@ -21,6 +21,12 @@ export default function parseListItems(movie, clickHandler, isNomination, curren
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary={`${Title} (${Year})`}/>
+            <MoviePopover 
+              title={Title}
+              year={Year}
+              poster={Poster}
+              imdbID={imdbID}
+              />
             <ListItemSecondaryAction>
               <IconButton 
                 edge="end" 
