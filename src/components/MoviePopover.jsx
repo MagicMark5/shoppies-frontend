@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
@@ -19,7 +19,7 @@ export default function MoviePopover(props) {
   const { title, year, poster } = props;
 
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -61,7 +61,8 @@ export default function MoviePopover(props) {
           alt={title}
           height="450"
           src={poster}
-          title={title}/>
+          title={title}
+        />
         <Typography className={classes.typography}>
           {title} ({year})
         </Typography>

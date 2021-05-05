@@ -17,7 +17,7 @@ export default function parseListItems(movie, clickHandler, isNomination, curren
   const avatarStyle = {
     height: '60px',
     width: '60px',
-    "margin-right": '1em'
+    marginRight: '1em'
   }
 
   return (<ListItem key={`${Title} (${Year}) [${imdbID}]`}>
@@ -31,7 +31,6 @@ export default function parseListItems(movie, clickHandler, isNomination, curren
               title={Title}
               year={Year}
               poster={Poster}
-              imdbID={imdbID}
               />
             <ListItemSecondaryAction>
               <IconButton 
