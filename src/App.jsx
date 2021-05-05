@@ -13,11 +13,14 @@ import removeDuplicates from './helpers/removeDuplicates';
 function App() {
   //const { state, dispatch } = useApplicationData();
   //const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li>));
+  const prevNominations = JSON.parse(localStorage.getItem('nominations') || []);
   const classes = makeStyles();
   const [currentMovie, setCurrentMovie] = useState("")
   const [currentResults, setCurrentResults] = useState([])
-  const [currentNominations, setNominations] = useState([])
+  const [currentNominations, setNominations] = useState(prevNominations)
   const showBanner = currentNominations.length === 5 ? true : false;
+
+
   
   useEffect(() => {
     if (currentMovie) {
@@ -33,6 +36,15 @@ function App() {
         setCurrentMovie(null)
       })
     }
+
+    // Retrieve nomination list from local storage if present
+    if (localStorage.hasOwnProperty("nominations")) {
+      const prevNominations = localStorage.getItem("nominations")
+      console.log(prevNominations);
+      const parsedNoms = JSON.parse(prevNominations)
+      setNominations([...parsedNoms])
+    }
+
   }, [currentMovie])
 
   return (

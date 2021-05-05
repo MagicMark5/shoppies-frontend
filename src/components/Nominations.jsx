@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import parseListItems from "../helpers/parseListItems";
 import makeStyles from "../styles/movieResultsStyle";
 import Typography from '@material-ui/core/Typography';
@@ -23,9 +24,12 @@ export default function Nominations(props) {
     return parseListItems(movieData, handleRemoveNomination, true);
   });
 
-  // Save currentNominations to local storage
-  console.log(currentNominations);
-  localStorage.setItem("nominations", JSON.stringify(currentNominations));
+  useEffect(() => {
+    // Save currentNominations to local storage
+    console.log('useEffect', currentNominations);
+    localStorage.setItem("nominations", JSON.stringify(currentNominations));
+  }, [currentNominations]);
+  
   
   return (
     <section className="nominations">
