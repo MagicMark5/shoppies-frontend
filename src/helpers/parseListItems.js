@@ -16,7 +16,7 @@ export default function parseListItems(movie, clickHandler, isNomination, curren
 
   return (<ListItem key={`${Title} (${Year}) [${imdbID}]`}>
             <ListItemAvatar>
-              <Avatar>
+              <Avatar src={Poster}>
                 <Icon className="fas fa-film" />
               </Avatar>
             </ListItemAvatar>
