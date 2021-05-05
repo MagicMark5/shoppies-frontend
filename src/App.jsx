@@ -43,7 +43,7 @@ function App() {
       <section className="movieForm">
         <MovieForm handleSubmitAction={setCurrentMovie} />
       </section>
-      {showBanner && <section className="banner">You have 5 nominations! Time for the shoppies 🏆 </section>}
+      {showBanner && <section className="banner">You are ready for the shoppies 🏆</section>}
       <section className="results-nominations">
         <MovieResults 
           movieList={currentResults} 

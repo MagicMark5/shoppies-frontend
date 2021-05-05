@@ -63,6 +63,7 @@ li {
   display: flex;
   justify-content: space-between;
   text-align: left;
+  text-overflow: ellipsis;
 }
 
 .banner {
@@ -72,4 +73,24 @@ li {
   line-height: 2em;
   background-color: #007ede;
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+}
+
+@media screen and (max-width: 600px) {
+  .results-nominations {
+    flex-direction: column;
+    .results, 
+    .nominations {
+      max-height: 400px;
+      overflow: scroll;
+      width: 100%;
+      .MuiTypography-displayBlock {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+    .nominations {
+      margin-top: 1em;
+    }
+  }
 }

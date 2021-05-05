@@ -20,11 +20,10 @@ export default makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(3),
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(3),
       width: '60%'
     },
   },
@@ -39,7 +38,7 @@ export default makeStyles((theme) => ({
   },
   inputRoot: {
     color: 'inherit',
-    width: '80%'
+    width: '85%'
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
@@ -47,8 +46,8 @@ export default makeStyles((theme) => ({
     transition: theme.transitions.create('width'),
     width: '100%',
     height: '20px',
-    [theme.breakpoints.up('md')]: {
-      width: '80ch',
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: '1em'
     },
   },
   sectionDesktop: {
