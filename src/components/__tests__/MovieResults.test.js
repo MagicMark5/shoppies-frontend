@@ -9,7 +9,7 @@ describe('MovieResults basic functionality', () => {
       query={"asdf"} 
       currentNominations={[]}
     />)
-    const element = result.queryByText('No results for "asdf"')
+    const element = result.queryByText(/No results for/i)
 
     expect(element).toBeInTheDocument()
   })
@@ -39,7 +39,7 @@ describe('MovieResults basic functionality', () => {
       currentNominations={[]}
     />)
 
-    const heading = queryByText("Movie Results")
+    const heading = queryByText(/Results for/i)
     expect(heading).toBeInTheDocument()
 
     const nominateBtns = queryAllByTestId("nominateBtn")

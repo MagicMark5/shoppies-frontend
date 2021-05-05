@@ -7,7 +7,7 @@ describe('MovieForm basic functionality', () => {
     // Setup: render component and get input inside form
     const result = render(<MovieForm />)
     const { queryByDisplayValue, getByPlaceholderText } = result
-    const input = getByPlaceholderText("Enter the movie name")
+    const input = getByPlaceholderText("Enter a movie title...")
     // Action: click input to select the element and fire change event to change value
     fireEvent.click(input)
     fireEvent.change(input, { target: { value: "spiderman"} })
@@ -21,8 +21,8 @@ describe('MovieForm basic functionality', () => {
 
     const result = render(<MovieForm handleSubmitAction={mockHandleSubmit}/>)
     const { queryByDisplayValue, getByPlaceholderText, getByTestId } = result
-    const input = getByPlaceholderText("Enter the movie name")
-    const button = getByTestId("search")
+    const input = getByPlaceholderText("Enter a movie title...")
+    const searchBar = getByTestId("search")
     // Action: enter input and click Search button
     fireEvent.click(input)
     fireEvent.change(input, { 
@@ -33,7 +33,7 @@ describe('MovieForm basic functionality', () => {
     const lalaLand = queryByDisplayValue("Lala Land")
     expect(lalaLand).toBeInTheDocument()
     // click search and submit form 
-    fireEvent.click(button)
+    fireEvent.submit(searchBar)
     const lalaLandAfterSearch = queryByDisplayValue("Lala Land")
     // Evaluate and expect input to be empty
     expect(lalaLandAfterSearch).not.toBeInTheDocument()
