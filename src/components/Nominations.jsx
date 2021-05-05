@@ -25,8 +25,7 @@ export default function Nominations(props) {
   });
 
   useEffect(() => {
-    // Save currentNominations to local storage
-    console.log('useEffect', currentNominations);
+    // Save currentNominations to local storage on each change
     localStorage.setItem("nominations", JSON.stringify(currentNominations));
   }, [currentNominations]);
   

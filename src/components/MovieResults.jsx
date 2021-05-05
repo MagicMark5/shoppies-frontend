@@ -8,6 +8,7 @@ export default function MovieResults(props) {
   const classes = makeStyles();
   const { movieList, currentNominations, handleNominateAction } = props
   const fiveSelected = currentNominations.length === 5 ? true : false;
+  const showTip = movieList.length === 0 ? true : false;
   
   const validatedMovies = Array.isArray(movieList) ? movieList : [];
 
@@ -28,6 +29,9 @@ export default function MovieResults(props) {
   return (
     <section className="results">
       <Typography variant="h5" className={classes.title}>{resultHeading}</Typography>
+      {showTip && <Typography variant="h6" className={classes.title}>
+        Enter a movie title into the search bar to see some films
+        </Typography>}
       <div className={classes.demo}>
         <List>
           {parsedMovies}
